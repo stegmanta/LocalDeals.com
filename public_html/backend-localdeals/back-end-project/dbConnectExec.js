@@ -1,6 +1,6 @@
 const sql = require('mssql');
 //pull in config from other file as needed
-const config = require('./config.js');
+const config = require('C:\\Users\\tae\\Desktop\\SQL server config for now\\config.js');
 // async function
 async function executeQuery(aQuery) {
     const connection = await sql.connect(config.DB);

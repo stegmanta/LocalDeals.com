@@ -1,6 +1,6 @@
 //build out middleware authentication
 const jwt = require('jsonwebtoken');
-const config = require('../config.js');
+const config = require('C:\\Users\\tae\\Desktop\\SQL server config for now\\config.js');
 const db = require('../dbConnectExec.js');
 
 const auth = async(req, res, next)=>{

@@ -4,7 +4,7 @@ const app = express();
 const db = require ('./dbConnectExec.js'); // enables execteQuery()
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('./config.js');
+const config = require('C:\\Users\\tae\\Desktop\\SQL server config for now\\config.js');
 const auth = require('./middleware/authenticate.js')
 const cors = require ('cors');
 
