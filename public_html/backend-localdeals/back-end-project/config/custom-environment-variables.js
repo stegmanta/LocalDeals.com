@@ -5,7 +5,10 @@ export default {
             password: 'DB_PASSWORD',
             server: 'DB_SERVER',
             database: 'DB_DATABASE',
-            trustServerCertificate: 'DB_TRUST_SERVER_CERTIFICATE',
+            trustServerCertificate: {
+                __name: 'DB_TRUST_SERVER_CERTIFICATE',
+                __format: 'json',
+            },
         },
         JWT: 'JWT',
     },
