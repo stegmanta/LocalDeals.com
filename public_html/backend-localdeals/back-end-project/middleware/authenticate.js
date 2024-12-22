@@ -1,13 +1,16 @@
 //build out middleware authentication
 const jwt = require('jsonwebtoken');
-const config = require('C:\\Users\\tae\\Desktop\\SQL server config for now\\config.js');
+const dotenv = require('dotenv');
+dotenv.config();
+const config = require('config')
+// const config = require('C:\\Users\\tae\\Desktop\\SQL server config for now\\config.js');
 const db = require('../dbConnectExec.js');
 
 const auth = async(req, res, next)=>{
     try{
         //first decode the token
         let myToken = req.header("Authorization").replace("Bearer ","");//remove bearer from string
-        let decoded = jwt.verify(myToken, config.JWT);
+        let decoded = jwt.verify(myToken, config.get('config.JWT'));
         let memberID = decoded.pk;
 
         //compare this token with the one in the database

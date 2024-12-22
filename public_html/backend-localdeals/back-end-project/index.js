@@ -4,7 +4,10 @@ const app = express();
 const db = require ('./dbConnectExec.js'); // enables execteQuery()
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('C:\\Users\\tae\\Desktop\\SQL server config for now\\config.js');
+const dotenv = require('dotenv');
+dotenv.config();
+const config = require('config')
+// const config = require('C:\\Users\\tae\\Desktop\\SQL server config for now\\config.js');
 const auth = require('./middleware/authenticate.js')
 const cors = require ('cors');
 
@@ -122,7 +125,7 @@ app.post("/Member/login", async(req, res)=>{
         return res.status(401).send("Invalid Password");
     }
     //Generate JSON Web Token
-    let token = jwt.sign({pk:user.MemberID}, config.JWT, {expiresIn: expirationStr});
+    let token = jwt.sign({pk:user.MemberID}, config.get('config.JWT'), {expiresIn: expirationStr});
     //Update the token in the database and send response to endpoint
     let setTokenQuery = `UPDATE MEMBER SET Token='${token}' WHERE MemberID = '${user.MemberID}'`;
     try{
