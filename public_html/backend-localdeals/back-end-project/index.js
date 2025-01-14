@@ -223,6 +223,20 @@ app.post("/Member/logout", auth,(req,res)=>{
         })
 });
 
+//get all reports from all users
+app.get("/All/Reports",(req,res)=>{
+    let query = `SELECT [REPORT].*, [MEMBER].FirstName, [LOCATION].LocationName FROM REPORT INNER JOIN MEMBER ON REPORT.MemberID = MEMBER.MemberID 
+                INNER JOIN LOCATION ON REPORT.LocationID = LOCATION.LocationID;`
+    let reports = db.executeQuery(query)
+        .then((reports)=>{
+            res.status(200).send(reports);
+        })
+        .catch((err)=>{
+            console.log("error in get /All/Reports",err);
+            res.status(500).send("error viewing all reports")
+        })
+})
+
 app.listen(port,()=>{
     console.log("app is running on port", port);
 });

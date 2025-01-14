@@ -8,6 +8,9 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item me-3">
+                        <router-link class="nav-link btn-darker active" aria-current="page" to="/All">All Reported Deals</router-link>
+                    </li>
+                    <li class="nav-item me-3">
                         <router-link class="nav-link btn-darker active" aria-current="page" to="/Locations">Locations</router-link>
                     </li>
                     <li v-if="auth" class="nav-item me-2">

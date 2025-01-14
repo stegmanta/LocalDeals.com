@@ -9,6 +9,7 @@ import Locations from "./components/Locations.vue";
 import NotFound from "./components/NotFound.vue";
 import Signup from "./components/Signup.vue";
 import CreateReport from "./components/CreateReport.vue";
+import AllReports from "./components/AllReports.vue";
 
 
 const router = createRouter({
@@ -23,6 +24,7 @@ const router = createRouter({
                 next("/login"); //redirects to login page
             }
         }},
+        {path: "/all", component: AllReports},
         {path: "/login", component: Login},
         {path: "/locations", component:Locations},
         {path: "/locations/:id", component: LocationDetails,//was pk
